@@ -18,5 +18,5 @@ Run the provisionning with chef-solo::
 Then you can launch the circusd as a service_::
 
     $ sudo /etc/init.d/circusd start
-	$ sudo /etc/init.d/circusd status
+    $ sudo /etc/init.d/circusd status
     $ sudo /etc/init.d/circusd stop
