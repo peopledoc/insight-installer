@@ -23,12 +23,15 @@ for package_name in package_list do
     action :install
   end
 end
-gem_list = ['docsplit']
-for gem_name in gem_list do
-  gem_package "docsplit" do
-    action :install
-  end
+gem_package "docsplit" do
+  action :install
+  notifies :create, "link[/usr/local/bin/docsplit]", :immediately
 end
+
+link "/usr/local/bin/docsplit" do
+  to "/var/lib/gems/1.9*/bin/docsplit"
+end
+
 
 # Generate Circus configuration.
 template "#{home}/insight/etc/circus/circus_insight.ini" do

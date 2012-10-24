@@ -1,7 +1,7 @@
     upstream app_server {
         # server unix:/tmp/gunicorn.sock fail_timeout=0;
         # For a TCP configuration:
-        server 127.0.0.1:8000 fail_timeout=0;
+        server 127.0.0.1:8888 fail_timeout=0;
     }
 
     server {
@@ -13,8 +13,8 @@
         gzip_proxied any;
         
         # path for static files
-        set previews_root \"<%= @user_path %>/insight/var/previews/\";
-        root $static_root;
+        set $previews_root "<%= @user_path %>/insight/var/previews/"
+        root $previews_root;
 
         location / {
             # checks for static file, if not found proxy to app

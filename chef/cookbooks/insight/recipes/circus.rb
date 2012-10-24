@@ -29,9 +29,11 @@ template "#{home}/insight/etc/circus/circus.ini" do
   source "circus.erb"
   action :create
 end
-execute "#{home}/insight/bin/pip install circus" do
+# Install circus
+execute "#{home}/insight/bin/pip install circus Mako MarkupSafe bottle anyjson gevent gevent-socketio gevent-websocket greenlet beaker" do
   user username
   group username
   environment ({'HOME' => "#{home}"})
   action :run
 end
+# Install circushttpd dependencies
