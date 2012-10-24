@@ -9,18 +9,18 @@ for package_name in package_list do
 end
 
 # Create a configuration for nginx
-template "/etc/nginx/sites-available/default" do
+template "/etc/nginx/sites-available/insight" do
   owner "root"
   group "root"
   mode "0644"
   source "nginx.erb"
   variables({:user_path => node['insight']['project_user']['home']})
   action :create
-  notifies :create, "link[/etc/nginx/sites-enabled/default]", :immediately
+  notifies :create, "link[/etc/nginx/sites-enabled/insight]", :immediately
 end
 
-link "/etc/nginx/sites-enabled/default" do
-  to "/etc/nginx/sites-available/default"
+link "/etc/nginx/sites-enabled/insight" do
+  to "/etc/nginx/sites-available/insight"
   notifies :reload, "service[nginx]", :immediately
 end
 
