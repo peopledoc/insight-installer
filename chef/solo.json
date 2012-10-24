@@ -15,10 +15,10 @@
 		"previews": {
             "root": "/home/insight/insight/var/previews",
 			"url": "http://34.34.34.10/previews"
+        },
+        "circus": {
+            "stdout_log_file": "/home/insight/insight/var/circus_out.log",
+            "stderr_log_file": "/home/insight/insight/var/circus_err.log"
         }
-		"circus": {
-		    "stdout_log_file": "/home/insight/insight/var/circus_out.log",
-		    "stderr_log_file": "/home/insight/insight/var/circus_err.log"
-		}
     }
 }
