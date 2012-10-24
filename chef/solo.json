@@ -1,0 +1,16 @@
+{
+    "run_list": [
+        "recipe[novapost_base::apt]",
+        "recipe[novapost_base::tools]",
+        "recipe[novapost_base::sftp]",
+        "recipe[insight::insight]"
+    ],
+    "insight": {
+        "project_user": {
+            "username": "insight",
+            "home": "/home/insight",
+            "uid": 501,
+            "gid": 501
+        }
+    }
+}

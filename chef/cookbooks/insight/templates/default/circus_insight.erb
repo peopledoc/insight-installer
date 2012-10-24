@@ -1,0 +1,15 @@
+[watcher:insight_consumer]
+cmd = bin/insight
+numprocesses = 3
+copy_env = True
+copy_path = True
+stdout_stream.class = StdoutStream
+stderr_stream.class = StdoutStream
+
+# Tornado async server
+[watcher:insight_api]
+cmd = bin/insight_api
+numprocesses = 1
+singleton = True
+stdout_stream.class = StdoutStream
+stderr_stream.class = StdoutStream
