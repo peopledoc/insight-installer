@@ -12,14 +12,13 @@ Install chef-solo
  
 Run the provisionning with chef-solo::
 
-    $ ./scripts/chef-install
+    $ sudo ./scripts/chef-install
     $ sudo chef-solo -c ./chef/solo.rb
 
 Then you can run insight-reloaded::
 
     $ sudo su insight
     $ cd /home/insight/insight
-    $ virtualenv .
     $ bin/python setup.py install
     $ bin/circusd etc/circus/circus.ini
 
