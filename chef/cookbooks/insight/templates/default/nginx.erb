@@ -13,7 +13,7 @@
         gzip_proxied any;
         
         # path for static files
-        set $previews_root <%= @previews_root %>;
+        set $previews_root <%= @insight_previews_root %>;
         root $previews_root;
 
         location / {
