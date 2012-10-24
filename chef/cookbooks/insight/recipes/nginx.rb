@@ -14,7 +14,7 @@ template "/etc/nginx/sites-available/insight" do
   group "root"
   mode "0644"
   source "nginx.erb"
-  variables({:user_path => node['insight']['project_user']['home']})
+  variables({:insight_previews_root => node['insight']['previews']['root']})
   action :create
   notifies :create, "link[/etc/nginx/sites-enabled/insight]", :immediately
 end

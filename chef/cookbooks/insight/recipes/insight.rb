@@ -29,7 +29,7 @@ gem_package "docsplit" do
 end
 
 link "/usr/local/bin/docsplit" do
-  to "/var/lib/gems/1.9*/bin/docsplit"
+  to "/var/lib/gems/1.9.1/bin/docsplit"
 end
 
 
@@ -41,12 +41,61 @@ template "#{home}/insight/etc/circus/circus_insight.ini" do
   source "circus_insight.erb"
   action :create
 end
+
+# Install 2.6 requirements
 execute "#{home}/insight/bin/pip install subprocess32" do
   user username
   group username
   environment ({'HOME' => "#{home}"})
   action :run
 end
+
+# Install insight in the venv
+execute "#{home}/insight/bin/python setup.py develop" do
+  user username
+  group username
+  cwd "#{home}/insight/"
+  environment ({'HOME' => "#{home}"})
+  action :run
+end
+
+# Patch entry point to use the etc/insight/settings.py file
+template "#{home}/insight/bin/insight_api" do
+  owner username
+  group username
+  mode "0644"
+  source "insight_api.erb"
+  action :create
+end
+
+# Patch entry point to use the etc/insight/settings.py file
+template "#{home}/insight/bin/insight" do
+  owner username
+  group username
+  mode "0644"
+  source "insight.erb"
+  action :create
+end
+
+# Setup the insight settings file
+directory "#{home}/insight/etc/insight" do
+  owner username
+  group username
+  mode "0755"
+  recursive true
+  action :create
+end
+
+template "#{home}/insight/etc/insight/settings.py" do
+  owner username
+  group username
+  mode "0644"
+  source "insight_settings.erb"
+  variables({:insight_previews_url => node['insight']['previews']['url'],
+             :insight_previews_root => node['insight']['previews']['root']})
+  action :create
+end
+
 
 # Post-install.
 include_recipe "insight::permissions"

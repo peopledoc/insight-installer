@@ -1,0 +1,11 @@
+#!/home/insight/insight/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'insight-reloaded','console_scripts','insight_api'
+__requires__ = 'insight-reloaded'
+import sys, os
+from pkg_resources import load_entry_point
+
+sys.path.insert(0, os.path.join(os.getcwd(), 'etc/insight/'))
+
+sys.exit(
+   load_entry_point('insight-reloaded', 'console_scripts', 'insight_api')()
+)

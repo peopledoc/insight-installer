@@ -11,6 +11,10 @@
             "home": "/home/insight",
             "uid": 501,
             "gid": 501
+        },
+		"previews": {
+            "root": "/home/insight/insight/var/previews",
+			"url": "http://34.34.34.10/previews"
         }
     }
 }
