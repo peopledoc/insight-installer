@@ -63,7 +63,7 @@ end
 template "#{home}/insight/bin/insight_api" do
   owner username
   group username
-  mode "0644"
+  mode "0755"
   source "insight_api.erb"
   action :create
 end
@@ -72,7 +72,7 @@ end
 template "#{home}/insight/bin/insight" do
   owner username
   group username
-  mode "0644"
+  mode "0755"
   source "insight.erb"
   action :create
 end
