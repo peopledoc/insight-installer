@@ -15,10 +15,8 @@ Run the provisionning with chef-solo::
     $ sudo ./scripts/chef-install
     $ sudo chef-solo -c ./chef/solo.rb
 
-Then you can run insight-reloaded::
+Then you can launch the circusd as a service_::
 
-    $ sudo su insight
-    $ cd /home/insight/insight
-    $ bin/python setup.py install
-    $ bin/circusd etc/circus/circus.ini
-
+    $ sudo /etc/init.d/circusd start
+	$ sudo /etc/init.d/circusd status
+    $ sudo /etc/init.d/circusd stop
