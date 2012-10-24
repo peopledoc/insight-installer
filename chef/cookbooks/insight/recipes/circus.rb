@@ -30,7 +30,7 @@ template "#{home}/insight/etc/circus/circus.ini" do
   action :create
 end
 # Install circus
-execute "#{home}/insight/bin/pip install circus Mako MarkupSafe bottle anyjson gevent gevent-socketio gevent-websocket greenlet beaker" do
+execute "#{home}/insight/bin/pip install circus Mako MarkupSafe bottle anyjson gevent gevent-socketio gevent_zeromq gevent-websocket greenlet beaker" do
   user username
   group username
   environment ({'HOME' => "#{home}"})

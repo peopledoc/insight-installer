@@ -39,6 +39,8 @@ template "#{home}/insight/etc/circus/circus_insight.ini" do
   group username
   mode "0644"
   source "circus_insight.erb"
+  variables({:stderr_log_file => node['insight']['circus']['stderr_log_file'],
+             :stdout_log_file => node['insight']['circus']['stdout_log_file']})
   action :create
 end
 

@@ -1,15 +1,29 @@
+# Insight docsplit worker
 [watcher:insight_consumer]
 cmd = bin/insight
 numprocesses = 3
 copy_env = True
 copy_path = True
-stdout_stream.class = StdoutStream
-stderr_stream.class = StdoutStream
+
+stdout_stream.class = FileStream
+stdout_stream.filename = <%= @stdout_log_file %>
+stdout_stream.refresh_time = 1
+
+stderr_stream.class = FileStream
+stdout_stream.filename = <%= @stderr_log_file %>
+stdout_stream.refresh_time = 1
+
 
 # Tornado async server
 [watcher:insight_api]
 cmd = bin/insight_api
 numprocesses = 1
 singleton = True
-stdout_stream.class = StdoutStream
-stderr_stream.class = StdoutStream
+
+stdout_stream.class = FileStream
+stdout_stream.filename = <%= @stdout_log_file %>
+stdout_stream.refresh_time = 1
+
+stderr_stream.class = FileStream
+stdout_stream.filename = <%= @stderr_log_file %>
+stdout_stream.refresh_time = 1
