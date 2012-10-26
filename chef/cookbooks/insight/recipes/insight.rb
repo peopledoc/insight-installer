@@ -40,7 +40,8 @@ template "#{home}/insight/etc/circus/circus_insight.ini" do
   mode "0644"
   source "circus_insight.erb"
   variables({:stderr_log_file => node['insight']['circus']['stderr_log_file'],
-             :stdout_log_file => node['insight']['circus']['stdout_log_file']})
+             :stdout_log_file => node['insight']['circus']['stdout_log_file'],
+             :redis_queue_keys => node['insight']['redis']['redis_queue_keys']})
   action :create
 end
 
@@ -94,7 +95,9 @@ template "#{home}/insight/etc/insight/settings.py" do
   mode "0644"
   source "insight_settings.erb"
   variables({:insight_previews_url => node['insight']['previews']['url'],
-             :insight_previews_root => node['insight']['previews']['root']})
+             :insight_previews_root => node['insight']['previews']['root'],
+             :redis_queue_keys => node['insight']['redis']['redis_queue_keys'],
+             :default_redis_queue_key => node['insight']['redis']['default_redis_queue_key']})
   action :create
 end
 

@@ -16,6 +16,10 @@
             "root": "/home/insight/insight/var/previews",
             "url": "http://34.34.34.10/previews"
         },
+        "redis": {
+            "default_redis_queue_key": "insight-reloaded",
+            "redis_queue_keys": ["insight-reloaded"]
+        },
         "circus": {
             "stdout_log_file": "/home/insight/insight/var/circus_out.log",
             "stderr_log_file": "/home/insight/insight/var/circus_err.log"
