@@ -11,7 +11,7 @@ stdout_stream.refresh_time = 1
 stderr_stream.class = FileStream
 stderr_stream.filename = <%= @stderr_log_file %>
 stderr_stream.refresh_time = 1
-<% @redis_queue_key.each do |queue| -%>
+<% @redis_queue_keys.each do |queue| -%>
 
 
 # Insight docsplit worker on <%= queue %> redis queue.
