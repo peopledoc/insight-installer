@@ -3,14 +3,15 @@ attributes = node['insight']['project_user']
 username = attributes['username']
 uid = attributes['uid']
 gid = attributes['gid']
-home = attributes['home']
+home = "/home/" + username
 copy_ssh_key = node['copy_ssh_key']
+user_create = attributes['create']
 
 group username do
   gid gid
   system false
   action :create
-end
+end if user_create
 
 user username do
   comment "Owner of Insight source files."
@@ -20,7 +21,7 @@ user username do
   shell "/bin/bash"
   system false
   action :create
-end
+end if user_create
 
 directory home do
   owner username

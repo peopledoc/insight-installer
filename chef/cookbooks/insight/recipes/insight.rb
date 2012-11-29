@@ -41,7 +41,8 @@ template "#{home}/insight/etc/circus/circus_insight.ini" do
   source "circus_insight.erb"
   variables({:stderr_log_file => node['insight']['circus']['stderr_log_file'],
              :stdout_log_file => node['insight']['circus']['stdout_log_file'],
-             :redis_queue_keys => node['insight']['redis']['redis_queue_keys']})
+             :redis_queue_keys => node['insight']['redis']['redis_queue_keys'],
+             :user => node['insight']['project_user']['username']})
   action :create
 end
 
@@ -68,6 +69,7 @@ template "#{home}/insight/bin/insight_api" do
   group username
   mode "0755"
   source "insight_api.erb"
+  variables({:home => "#{home}"})
   action :create
 end
 
@@ -77,6 +79,7 @@ template "#{home}/insight/bin/insight" do
   group username
   mode "0755"
   source "insight.erb"
+  variables({:home => "#{home}"})
   action :create
 end
 

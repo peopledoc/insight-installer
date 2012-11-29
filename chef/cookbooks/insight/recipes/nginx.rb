@@ -21,7 +21,7 @@ end
 
 link "/etc/nginx/sites-enabled/insight" do
   to "/etc/nginx/sites-available/insight"
-  notifies :reload, "service[nginx]", :immediately
+  notifies :restart, "service[nginx]", :immediately
 end
 
 service "nginx"

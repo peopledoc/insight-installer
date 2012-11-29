@@ -10,7 +10,8 @@
             "username": "insight",
             "home": "/home/insight",
             "uid": 501,
-            "gid": 501
+            "gid": 501,
+			"create": false
         },
         "previews": {
             "root": "/home/insight/insight/var/previews",

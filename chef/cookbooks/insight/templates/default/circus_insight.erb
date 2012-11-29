@@ -3,6 +3,8 @@
 cmd = bin/insight_api
 numprocesses = 1
 singleton = True
+uid = <%= @user %>
+gid = <%= @user %>
 
 stdout_stream.class = FileStream
 stdout_stream.filename = <%= @stdout_log_file %>
@@ -20,6 +22,8 @@ cmd = bin/insight <%= queue %>
 numprocesses = 3
 copy_env = True
 copy_path = True
+uid = <%= @user %>
+gid = <%= @user %>
 
 stdout_stream.class = FileStream
 stdout_stream.filename = <%= @stdout_log_file %>
