@@ -15,7 +15,7 @@ Run the provisionning with chef-solo::
     $ sudo ./scripts/chef-install
     $ sudo chef-solo -c ./chef/solo.rb
 
-Then you can launch the circusd as a service_::
+Then you can launch the circusd as a service::
 
     $ sudo /etc/init.d/circusd start
     $ sudo /etc/init.d/circusd status
