@@ -11,8 +11,8 @@
 # Provides:          circusd
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Required-Start:
-# Required-Stop:
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
 # Short-Description: Start circusd
 # Description:       starts circusd
 ### END INIT INFO
