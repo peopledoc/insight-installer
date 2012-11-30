@@ -31,6 +31,8 @@ exit
 fi
 echo "Starting circusd on $CIRCUS_HOME"
 export PATH=/usr/bin:/bin:/usr/local/bin
+export LANG="fr_FR.UTF-8"
+export LC_ALL=$LANG
 cd "$CIRCUS_HOME"; $CIRCUSD_PATH --log-output "$CIRCUSD_LOG" --pidfile "$PIDFILE" "$CIRCUSD_CONF" & > /dev/null 2>&1
 ;;
 stop)
