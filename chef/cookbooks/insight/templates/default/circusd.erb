@@ -11,6 +11,8 @@
 # Provides:          circusd
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
+# Required-Start:
+# Required-Stop:
 # Short-Description: Start circusd
 # Description:       starts circusd
 ### END INIT INFO
@@ -28,6 +30,7 @@ sleep 2
 exit
 fi
 echo "Starting circusd on $CIRCUS_HOME"
+export PATH=/usr/bin:/bin:/usr/local/bin
 cd "$CIRCUS_HOME"; $CIRCUSD_PATH --log-output "$CIRCUSD_LOG" --pidfile "$PIDFILE" "$CIRCUSD_CONF" & > /dev/null 2>&1
 ;;
 stop)
