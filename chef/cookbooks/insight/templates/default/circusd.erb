@@ -53,8 +53,16 @@ fi
 echo "circusd is not running."
 exit
 ;;
+restart)
+if [ -f "$PIDFILE" ]; then
+$CIRCUS_HOME/bin/circusctl restart
+exit
+fi
+echo "circusd is not running."
+exit
+;;
 *)
-echo "Usage: $0 {start|stop}"
+echo "Usage: $0 {start|stop|status|restart}"
 exit 1
 esac
 exit 0
