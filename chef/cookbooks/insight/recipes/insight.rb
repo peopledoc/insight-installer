@@ -17,6 +17,7 @@ package_list = [
   'poppler-utils',
   'pdftk',
   'ghostscript',
+  'ttf-mscorefonts-installer',
 ]
 for package_name in package_list do
   package package_name do
@@ -80,6 +81,24 @@ template "#{home}/insight/bin/insight" do
   mode "0755"
   source "insight.erb"
   variables({:home => "#{home}"})
+  action :create
+end
+
+# cidfmap
+template "/var/lib/ghostscript/fonts/cidfmap" do
+  owner "root"
+  group "root"
+  mode "0644"
+  source "cidfmap.erb"
+  action :create
+end
+
+# CMap/Identity-UTF16-H
+template "/usr/share/ghostscript/8.71/Resource/CMap/Identity-UTF16-H" do
+  owner "root"
+  group "root"
+  mode "0644"
+  source "identity-utf16-H.erb"
   action :create
 end
 
