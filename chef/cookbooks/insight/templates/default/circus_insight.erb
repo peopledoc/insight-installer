@@ -24,6 +24,7 @@ copy_env = True
 copy_path = True
 uid = <%= @user %>
 gid = <%= @user %>
+rlimit_nofile = 32000
 
 stdout_stream.class = FileStream
 stdout_stream.filename = <%= @stdout_log_file %>

@@ -84,23 +84,24 @@ template "#{home}/insight/bin/insight" do
   action :create
 end
 
-# cidfmap
-template "/var/lib/ghostscript/fonts/cidfmap" do
-  owner "root"
-  group "root"
-  mode "0644"
-  source "cidfmap.erb"
-  action :create
-end
+# CF : http://stackoverflow.com/questions/13819917/ghoshscript-error-error-rangecheck-in-dicttomark
+# # cidfmap
+# template "/var/lib/ghostscript/fonts/cidfmap" do
+#   owner "root"
+#   group "root"
+#   mode "0644"
+#   source "cidfmap.erb"
+#   action :create
+# end
 
-# CMap/Identity-UTF16-H
-template "/usr/share/ghostscript/8.71/Resource/CMap/Identity-UTF16-H" do
-  owner "root"
-  group "root"
-  mode "0644"
-  source "identity-utf16-H.erb"
-  action :create
-end
+# # CMap/Identity-UTF16-H
+# template "/usr/share/ghostscript/8.71/Resource/CMap/Identity-UTF16-H" do
+#   owner "root"
+#   group "root"
+#   mode "0644"
+#   source "identity-utf16-H.erb"
+#   action :create
+# end
 
 # Setup the insight settings file
 directory "#{home}/insight/etc/insight" do
