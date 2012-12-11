@@ -21,6 +21,16 @@ file "/etc/apt/sources.list.d/20-debian-backports.list" do
   mode "0644"
   content source
   action :create
+end
+
+# Enable Debian contrib.
+source = "deb http://ftp.fr.debian.org/debian/ squeeze contrib"
+file "/etc/apt/sources.list.d/10-debian-contrib.list" do
+  owner "root"
+  group "root"
+  mode "0644"
+  content source
+  action :create
   notifies :run, "execute[apt-get update]", :immediately
 end
 
